@@ -50,8 +50,22 @@ section {
   list-style: none;
 }
 
+.menu .menu-item a {
+  color: #58668e;
+}
+
+.sidebar a.active {
+  color: #d6dbdd;
+}
+
 .nav .menu .menu-item:not(:last-child) {
   margin-bottom: 1rem;
+}
+
+.nav .logo .menu-icon,
+.sidebar .menu .menu-icon {
+  width: 24px;
+  height: 24px;
 }
 
 .sidebar .avatar {
@@ -67,7 +81,8 @@ section {
 
 /* ========== MAIN VIEW ==========  */
 .main-view {
-  flex-grow: 1;
+  /* flex-grow: 1; */
+  width: calc(100% - 90px - 2rem);
   margin-left: 2rem;
   /* margin-left: calc(2rem + 90px); */
 }
@@ -113,13 +128,13 @@ section {
 .trending-movies-item {
   padding: 1.2rem;
   position: relative;
-  background: url("https://image.tmdb.org/t/p/w185/sqLowacltbZLoCa4KYye64RvvdQ.jpg");
+  /* background-image: url("https://image.tmdb.org/t/p/w185/sqLowacltbZLoCa4KYye64RvvdQ.jpg"); */
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  min-height: 220px;
+  min-height: 250px;
   border-radius: 6px;
-  width: 40%;
+  flex-basis: 185px;
   flex-shrink: 0;
 }
 
@@ -182,18 +197,18 @@ section {
   margin-top: 1.5rem;
   padding-right: 1.5rem;
   display: grid;
-  grid-template-columns: repeat(4, minmax(220px, 1fr));
+  grid-template-columns: repeat(1, minmax(220px, 1fr));
   gap: 2rem;
 }
 
 .recommended-movies-item {
   padding: 1rem;
   position: relative;
-  background: url("https://image.tmdb.org/t/p/w185/sqLowacltbZLoCa4KYye64RvvdQ.jpg");
+  /* background: url("https://image.tmdb.org/t/p/w185/sqLowacltbZLoCa4KYye64RvvdQ.jpg"); */
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  min-height: 180px;
+  height: 300px;
   border-radius: 6px;
   margin-bottom: 8px;
 }
@@ -217,3 +232,79 @@ section {
 }
 
 /* ========== MAIN VIEW ==========  */
+
+@media screen and (max-width: 768px) {
+  section {
+    flex-direction: column;
+    padding: 1.5rem;
+  }
+
+  /* ======= SIDEBAR ======= */
+  .sidebar {
+    width: 100%;
+    padding: 1rem;
+    flex-direction: row;
+  }
+
+  .sidebar .nav {
+    display: flex;
+    flex-grow: 1;
+  }
+
+  .sidebar .nav,
+  .nav .menu {
+    display: flex;
+  }
+
+  .nav .logo {
+    margin-bottom: 0;
+  }
+
+  .nav .menu {
+    margin: 0 auto;
+  }
+
+  .nav .menu .menu-item:not(:first-child) {
+    margin-left: 1rem;
+  }
+
+  .nav .menu .menu-item:not(:last-child) {
+    margin-bottom: 0;
+  }
+  /* ======= SIDEBAR ======= */
+
+  .main-view {
+    margin-left: 0;
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 576px) {
+  .recommended-movies-wrapper {
+    grid-template-columns: repeat(2, minmax(0px, 1fr));
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .recommended-movies-wrapper {
+    grid-template-columns: repeat(3, minmax(0px, 1fr));
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .recommended-movies-wrapper {
+    grid-template-columns: repeat(4, minmax(0px, 1fr));
+  }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+  .recommended-movies-wrapper {
+    grid-template-columns: repeat(5, minmax(0px, 1fr));
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .recommended-movies-wrapper {
+    grid-template-columns: repeat(6, minmax(0px, 1fr));
+  }
+}
